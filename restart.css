@@ -1,0 +1,300 @@
+/* Variables */
+
+:root {
+  --ff-sans: ui-sans-serif, system-ui, sans-serif;
+  --ff-serif: ui-serif, Cambria, "Times New Roman", Times, serif;
+  --ff-mono: ui-monospace, Menlo, Consolas, "Courier New", monospace;
+  --ff: var(--ff-sans);
+  --fs: 100%;
+  --lh: 1.5;
+  --h1: 2.986em;
+  --h2: 2.488em;
+  --h3: 2.074em;
+  --h4: 1.728em;
+  --h5: 1.44em;
+  --h6: 1.2em;
+  --line: 1px solid rgba(153, 153, 153, .35);
+  --h-input: 2.5rem;
+  --r-input: 0.25rem;
+  --p-cell: 0.5em 1em;
+  --bg-code: rgba(102, 102, 102, .15);
+  --focus-ring: rgba(102, 102, 255, .5);
+  --t-input: CanvasText;
+  --bg-input: rgba(102, 102, 255, .15);
+  --t-button: white;
+  --bg-button: #222;
+}
+
+/* Reset */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  font-family: var(--ff);
+  font-size: var(--fs);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  line-height: var(--lh);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+iframe {
+  border: 0;
+}
+
+summary {
+  cursor: pointer;
+}
+
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Accessibility */
+
+:focus-visible {
+  z-index: 1;
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--focus-ring);
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Typography */
+
+p,
+ol,
+ul,
+dl,
+pre,
+table,
+fieldset,
+figure,
+figcaption,
+blockquote {
+  margin-block: 0 calc(var(--lh) * 1rem);
+}
+
+h1 {
+  font-size: var(--h1);
+}
+
+h2 {
+  font-size: var(--h2);
+}
+
+h3 {
+  font-size: var(--h3);
+}
+
+h4 {
+  font-size: var(--h4);
+}
+
+h5 {
+  font-size: var(--h5);
+}
+
+h6 {
+  font-size: var(--h6);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 calc(var(--lh) * 1rem);
+  line-height: calc(1em + 1rem);
+  text-wrap: balance;
+}
+
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+ol ol ol {
+  list-style-type: lower-roman;
+}
+
+hr {
+  width: 100%;
+  border: 0;
+  border-top: var(--line);
+  height: 0;
+  margin-block: calc(var(--lh) * 2rem);
+}
+
+code,
+kbd,
+samp {
+  font-family: var(--ff-mono);
+  font-style: normal;
+  font-weight: normal;
+}
+
+code {
+  display: inline-block;
+  padding-inline: .25em;
+  color: var(--t-code);
+  background-color: var(--bg-code);
+}
+
+pre {
+  font-style: normal;
+  font-weight: normal;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+pre code {
+  display: block;
+  padding: 1em;
+  overflow-x: auto;
+  background-color: var(--bg-code);
+}
+
+/* Forms */
+
+fieldset {
+  border: var(--line);
+}
+
+fieldset,
+label,
+legend {
+  font-family: var(--ff-sans);
+}
+
+::placeholder {
+  color: var(--t-input);
+  opacity: .8;
+}
+
+input,
+select,
+textarea {
+  outline: 0 none;
+  min-height: var(--h-input);
+  border: var(--line);
+  border-radius: var(--r-input);
+  padding: var(--p-cell);
+  font-family: var(--ff-sans);
+  font-size: inherit;
+  text-align: start;
+  color: var(--t-input);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  position: relative;
+  z-index: 1;
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--focus-ring);
+}
+
+select:not([multiple]) {
+  height: var(--h-input);
+}
+
+[type="color"] {
+  width: var(--h-input);
+  height: var(--h-input);
+  padding: .25em;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  display: inline;
+  height: 1em;
+  min-height: unset;
+  width: 1.05em;
+}
+
+[type=search] {
+  -webkit-appearance: textfield;
+  appearance: textfield;
+}
+
+:disabled:hover {
+  cursor: not-allowed;
+}
+
+textarea:not([rows]) {
+  min-height: 6em;
+}
+
+input:is([type="button"], [type="submit"], [type="reset"]),
+button,
+.button {
+  display: inline-flex;
+  height: var(--h-input);
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  padding: var(--p-cell);
+  border: 1px solid transparent;
+  border-radius: var(--r-input);
+  font-family: var(--ff-sans);
+  font-size: inherit;
+  line-height: 1;
+  color: var(--t-button);
+  background-color: var(--bg-button);
+}
+
+input[type="file"]::file-selector-button {
+  border: 1px solid transparent;
+  border-radius: var(--r-input);
+  color: var(--t-button);
+  background-color: var(--bg-button);
+}
+
+/* Table */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: var(--line);
+}
+
+figcaption,
+caption,
+th,
+td {
+  padding: var(--p-cell);
+}
