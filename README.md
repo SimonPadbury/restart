@@ -6,7 +6,7 @@ _A modern CSS reset plus a few ultra minimal styles – with dark mode compatibi
 
 Filesize: 4 KB (unminified)
 
-Demo: [simonpadbury.github.io/restart-css/](simonpadbury.github.io/restart-css/)
+Demo: https://simonpadbury.github.io/restart-css/
 
 ***
 
