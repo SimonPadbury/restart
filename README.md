@@ -52,7 +52,7 @@ With that meta tag in place, your browser then sets the _system colors_ in the b
 
 What you build on top of `restart.css` is, of course, up to you.
 
-**Not included** in `restart.css`: an alternative way of enabling the user preference to choose the light or dark mode is to add `color-scheme: dark light;` to the document root:
+**Not included** in `restart.css`: an alternative way of enabling the user preference to choose the light or dark mode is to add `color-scheme: dark light;` to the document root, as follows:
 
 ```css
 :root {
@@ -62,7 +62,7 @@ What you build on top of `restart.css` is, of course, up to you.
 
 ### The demo light/dark mode toggler
 
-The demo `index.html` is linked to a simple JavaScript named `theme.js`. It is not necessary, but is included for demonstration purposes, and you can copy it if you like. 
+The demo `index.html` is has a simple JavaScript in its `<head>`. This JS is not necessary for `restart.css`, but is included for demonstration purposes. You can copy it if you like. 
 
 This script responds to the user’s operating system preferences and sets a [sessionStorage]() token accordingly (either `"light"` or `"dark"`).
 
