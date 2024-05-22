@@ -1,5 +1,5 @@
 /**
- * Restart CSS v.1.0 by Simon Padbury | MIT Licence
+ * Restart CSS v.1.1 by Simon Padbury | MIT Licence
  * https://github.com/SimonPadbury/restart-css/
  */
 
@@ -11,13 +11,14 @@
   --ff-mono: ui-monospace, Menlo, Consolas, "Courier New", monospace;
   --ff: var(--ff-sans);
   --fs: 100%;
-  --lh: 1.5;
+  --lh: calc(1em + 0.5rem);
   --h1: 2.986em;
   --h2: 2.488em;
   --h3: 2.074em;
   --h4: 1.728em;
   --h5: 1.44em;
   --h6: 1.2em;
+  --ms: 1rem;
   --line: 1px solid rgba(153, 153, 153, .35);
   --h-input: 2.5rem;
   --r-input: 0.25rem;
@@ -105,7 +106,7 @@ fieldset,
 figure,
 figcaption,
 blockquote {
-  margin-block: 0 calc(var(--lh) * 1rem);
+  margin-block: 0 var(--ms);
 }
 
 h1 {
@@ -138,9 +139,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 calc(var(--lh) * 1rem);
-  line-height: calc(1em + 1rem);
-  text-wrap: balance;
+  margin-block: 0 var(--ms);
+  line-height: var(--lh);
 }
 
 ol ol {
@@ -151,12 +151,17 @@ ol ol ol {
   list-style-type: lower-roman;
 }
 
+li ol,
+li ul {
+  margin-bottom: 0;
+}
+
 hr {
   width: 100%;
   border: 0;
   border-top: var(--line);
   height: 0;
-  margin-block: calc(var(--lh) * 2rem);
+  margin-block: var(--lh);
 }
 
 code,
