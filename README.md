@@ -1,6 +1,6 @@
 # Restart
 
-_A modern CSS reset plus a few minimal styles – with dark mode compatibility._
+_A modern CSS reset plus a few minimal styles – with dark mode theme._
 
 `restart.css` version 1.2
 
@@ -30,9 +30,9 @@ Out of the box, `restart.css` (4 KB) gives you:
  6. “Responsive” control of image media (img, picture, canvas, video, svg) with `max-width: 100%`.
  7. The only CSS classes included are `.visually-hidden`, and `.button` (for when you want to style some links to look like buttons).
 
-## Dark theme
+## Built-in theme for dark mode
 
-There is no built-in dark theme, but there is what I’m calling dark mode _compatibility_. This includes:
+There is a simple dark theme built in. This includes:
 
 1. Not setting most colors, so that you get the (user agent) browser defaults. These will change with the user’s operating system preference for light or dark mode.
 2. Where necessary, styling a few elements with user agent controlled [system color names](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color) (that are used by all the major browsers).
