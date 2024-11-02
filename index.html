@@ -4,38 +4,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="dark light" />
   <title>Restart CSS demo</title>
+  <!-- Theme toggler from https://css-tricks.com/come-to-the-light-dark-side/ -->
   <script>
-    const matchMediaDark = window.matchMedia("(prefers-color-scheme: dark)");
-    const htmlTheme = document.querySelector("meta[name='color-scheme']");
+    const html = document.querySelector("html");
+    const mode = localStorage.getItem("mode");
+    const lightSwitch = document.querySelector('#lightSwitch');
+    const darkSwitch = document.querySelector('#darkSwitch');
+    const autoSwitch = document.querySelector('#autoSwitch');
 
-    function themeDark() {
-      sessionStorage.setItem("restartTheme", "dark");
-      htmlTheme.setAttribute("content", "dark");
+    if (mode === "light") switchLight();
+    if (mode === "dark") switchDark();
+
+    function switchAuto() {
+      html.style.setProperty("color-scheme", "light dark");
+      localStorage.removeItem("mode");
+      lightSwitch.setAttribute("aria-pressed", "false");
+      darkSwitch.setAttribute("aria-pressed", "false");
+      autoSwitch.setAttribute("aria-pressed", "true");
     }
 
-    function themeLight() {
-      sessionStorage.setItem("restartTheme", "light");
-      htmlTheme.setAttribute("content", "light");
+    function switchLight() {
+      html.style.setProperty("color-scheme", "light");
+      localStorage.setItem("mode", "light");
+      lightSwitch.setAttribute("aria-pressed", "true");
+      darkSwitch.setAttribute("aria-pressed", "false");
+      autoSwitch.setAttribute("aria-pressed", "false");
     }
 
-    function restartInit() {
-      if (sessionStorage.restartTheme === "dark" || (!("restartTheme" in sessionStorage) && matchMediaDark.matches)) {
-        themeDark();
-      } else {
-        themeLight();
-      }
-    };
-
-    restartInit();
-
-    function toggleTheme() {
-      if (sessionStorage.restartTheme === "dark") {
-        themeLight();
-      } else {
-        themeDark();
-      }
+    function switchDark() {
+      html.style.setProperty("color-scheme", "dark");
+      localStorage.setItem("mode", "dark");
+      lightSwitch.setAttribute("aria-pressed", "false");
+      darkSwitch.setAttribute("aria-pressed", "true");
+      autoSwitch.setAttribute("aria-pressed", "false");
     }
   </script>
   <link rel="stylesheet" href="restart.css">
@@ -45,14 +47,17 @@
   <header
     style="position: sticky; top: 0; border-bottom: var(--line); padding: var(--p-cell); display: flex; gap: 2rem; justify-content: space-between; align-items: center; flex-wrap: wrap; background-color: Canvas;">
     <div>
-      <a style="font-size: x-large;" href="">
+      <a style="font-size: x-large;" href="/">
         Restart CSS
       </a>
     </div>
-    <div style="display: flex; gap: 2rem; align-items: center;"><button id="toggler" title="Toggle light or dark theme"
-        onclick="toggleTheme()">
-        Toggle ● / ☾
-      </button>
+    <div style="display: flex; gap: 2rem; align-items: center;">
+      <div>
+        <span>Demo theme:</span>
+        <button id="autoSwitch" type="button" onclick="switchAuto()">⚙ Auto</button>
+        <button id="lightSwitch" type="button" onclick="switchLight()">● Light</button>
+        <button id="darkSwitch" type="button" onclick="switchDark()">☾ Dark</button>
+      </div>
       <nav style="display: flex; gap: 2rem; align-items: center;">
         <a href="https://raw.githubusercontent.com/SimonPadbury/restart-css/main/restart.css">Download CSS</a>
         <a href="https://github.com/SimonPadbury/restart-css/">GitHub repo</a>
@@ -72,6 +77,8 @@
         Demo HTML for <code>restart.css</code> based on HTML5 Kitchen sink by @dbox, copied from <a
           href="https://codepen.io/chriscoyier/pen/JpLzjd">https://codepen.io/chriscoyier/pen/JpLzjd</a> and slightly
         modified for use here.<br><br>
+        Demo toggler copied from Sara Joy’s excellent <a href="https://css-tricks.com/come-to-the-light-dark-side/">Come
+          to the light-dark() Side</a><br><br>
         Instructions are in the <a href="https://github.com/SimonPadbury/restart-css/">README file in this
           repository</a>.
       </div>
