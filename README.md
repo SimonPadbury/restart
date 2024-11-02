@@ -36,7 +36,7 @@ There is no built-in dark theme, but there is what I’m calling dark mode _comp
 
 1. Not setting most colors, so that you get the (user agent) browser defaults. These will change with the user’s operating system preference for light or dark mode.
 2. Where necessary, styling a few elements with user agent controlled [system color names](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color) (that are used by all the major browsers).
-3. Setting a few base for line details (<hr> tag, table borders, form input borders), form inputs, an buttons using the new CSS function `light-dark()`.
+3. Setting a few base for line details (`<hr>` tag, table borders, form input borders), form inputs, an buttons using the new CSS function `light-dark()`.
 
 That’s it. There are no `@media (prefers-color-scheme: ...) {}` in the stylesheet.
 
