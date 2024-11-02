@@ -1,5 +1,5 @@
 /**
- * Restart CSS v.1.1 by Simon Padbury | MIT Licence
+ * Restart CSS v.1.2 by Simon Padbury | MIT Licence
  * https://github.com/SimonPadbury/restart-css/
  */
 
@@ -12,23 +12,21 @@
   --ff: var(--ff-sans);
   --fs: 100%;
   --lh: calc(1em + 0.5rem);
-  --h1: 2.986em;
-  --h2: 2.488em;
-  --h3: 2.074em;
-  --h4: 1.728em;
-  --h5: 1.44em;
-  --h6: 1.2em;
-  --ms: 1rem;
+  --h1: 3em;
+  --h2: 2.25em;
+  --h3: 1.875em;
+  --h4: 1.5em;
+  --h5: 1.25em;
+  --h6: 1.125em;
   --line: 1px solid rgba(153, 153, 153, .35);
   --h-input: 2.5rem;
   --r-input: 0.25rem;
   --p-cell: 0.5em 1em;
   --bg-code: rgba(102, 102, 102, .15);
-  --focus-ring: rgba(102, 102, 255, .5);
   --t-input: CanvasText;
   --bg-input: rgba(102, 102, 255, .15);
   --t-button: white;
-  --bg-button: #444;
+  --bg-button: slateblue;
 }
 
 /* Reset */
@@ -78,9 +76,9 @@ summary {
 /* Accessibility */
 
 :focus-visible {
-  z-index: 1;
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--focus-ring);
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 2px;
 }
 
 .visually-hidden:not(:focus):not(:active) {
@@ -96,6 +94,12 @@ summary {
 
 /* Typography */
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 p,
 ol,
 ul,
@@ -106,7 +110,8 @@ fieldset,
 figure,
 figcaption,
 blockquote {
-  margin-block: 0 var(--ms);
+  margin-block: 0 1rem;
+  line-height: var(--lh);
 }
 
 h1 {
@@ -131,16 +136,6 @@ h5 {
 
 h6 {
   font-size: var(--h6);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-block: 0 var(--ms);
-  line-height: var(--lh);
 }
 
 ol ol {
@@ -218,19 +213,10 @@ textarea {
   border: var(--line);
   border-radius: var(--r-input);
   padding: var(--p-cell);
-  font-family: var(--ff-sans);
+  font-family: inherit;
   font-size: inherit;
   text-align: start;
   color: var(--t-input);
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  position: relative;
-  z-index: 1;
-  outline: 0;
-  box-shadow: 0 0 0 4px var(--focus-ring);
 }
 
 select:not([multiple]) {

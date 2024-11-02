@@ -2,7 +2,7 @@
 
 _A modern CSS reset plus a few ultra minimal styles – with dark mode compatibility._
 
-`restart.css` version 1.1
+`restart.css` version 1.2
 
 Filesize: 4 KB (unminified)
 
